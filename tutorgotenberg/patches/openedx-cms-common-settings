@@ -1,0 +1,1 @@
+GOTENBERG_HOST = "http://gotenberg:{{ GOTENBERG_PORT }}"
