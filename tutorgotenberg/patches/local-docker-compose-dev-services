@@ -1,0 +1,6 @@
+############# gotenberg: service to convert documents to pdf
+gotenberg:
+  image: {{ GOTENBERG_DOCKER_IMAGE }}
+  restart: unless-stopped
+  ports:
+    - "{{ GOTENBERG_PORT }}:3000"
