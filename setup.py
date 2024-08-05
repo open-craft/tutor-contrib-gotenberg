@@ -45,7 +45,7 @@ setup(
     install_requires=["tutor>=16.0.0,<19.0.0"],
     extras_require={
         "dev": [
-            "tutor[dev]>=16.0.0,<19.0.0",
+            "tutor[dev]>=15.0.0,<19.0.0",
         ]
     },
     entry_points={
