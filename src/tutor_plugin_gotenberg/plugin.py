@@ -6,15 +6,12 @@ from glob import glob
 import importlib_resources
 from tutor import hooks
 
-from .__about__ import __version__
-
 ########################################
 # CONFIGURATION
 ########################################
 
 hooks.Filters.CONFIG_DEFAULTS.add_items(
     [
-        ("GOTENBERG_VERSION", __version__),
         ("GOTENBERG_DOCKER_IMAGE", "gotenberg/gotenberg:8"),
         ("GOTENBERG_PORT", "3000"),
     ]
@@ -38,8 +35,6 @@ hooks.Filters.IMAGES_BUILD.add_items(
 
 hooks.Filters.IMAGES_PULL.add_items([("gotenberg", "{{ gotenberg_DOCKER_IMAGE }}")])
 
-# hooks.Filters.IMAGES_PUSH.add_items([("gotenberg", "{{ gotenberg_DOCKER_IMAGE }}")])
-
 
 ########################################
 # TEMPLATE RENDERING
@@ -47,7 +42,7 @@ hooks.Filters.IMAGES_PULL.add_items([("gotenberg", "{{ gotenberg_DOCKER_IMAGE }}
 
 hooks.Filters.ENV_TEMPLATE_ROOTS.add_items(
     [
-        str(importlib_resources.files("tutorgotenberg") / "templates"),
+        str(importlib_resources.files("tutor_plugin_gotenberg") / "templates"),
     ]
 )
 
@@ -65,6 +60,8 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
 
 # For each file in tutorgotenberg/patches,
 # apply a patch based on the file's name and contents.
-for path in glob(str(importlib_resources.files("tutorgotenberg") / "patches" / "*")):
+for path in glob(
+    str(importlib_resources.files("tutor_plugin_gotenberg") / "patches" / "*")
+):
     with open(path, encoding="utf-8") as patch_file:
         hooks.Filters.ENV_PATCHES.add_item((os.path.basename(path), patch_file.read()))

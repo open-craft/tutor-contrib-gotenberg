@@ -3,7 +3,7 @@ Gotenberg plugin for `Tutor <https://docs.tutor.edly.io>`__
 
 Plugin to set up Gotenberg in a docker container for converting documents.
 
-The [Gotenberg](https://github.com/gotenberg/gotenberg) project uses Chrome and
+The `Gotenberg <https://github.com/gotenberg/gotenberg>`__` project uses Chrome and
 LibreOffice for converting between documents. This tutor plugin will set up the
 service in a Docker container or in Kubernetes for use by other services to
 perform document conversions.
@@ -29,7 +29,7 @@ Usage
 Testing
 *******
 
-To test this XBlock in development mode, you can install the "gotenberg" pip
+To test this plugin in development mode, you can install the "gotenberg" pip
 package locally, making sure to use version specified in "GOTENBERG_PACKAGE_VERSION"
 for best compatibility. You can then test it as follows:
 

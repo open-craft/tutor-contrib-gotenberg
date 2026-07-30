@@ -1,0 +1,34 @@
+[project]
+name = "tutor-plugin-gotenberg"
+version = "21.0.0"
+license = "AGPL-3.0-only"
+description = "A Tutor plugin for Gotenberg"
+readme = "README.rst"
+authors = [
+    { name = "Kshitij Sobti", email = "help@opencraft.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "tutor>=21.0.0",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.entry-points."tutor.plugin.v1"]
+gotenberg = "tutor_plugin_gotenberg.plugin"
+
+[build-system]
+requires = ["uv_build>=0.11.7,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.14",
+    "tutor[dev]>=21.0.0",
+    "ty>=0.0.65",
+]
