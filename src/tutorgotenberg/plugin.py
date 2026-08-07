@@ -42,7 +42,7 @@ hooks.Filters.IMAGES_PULL.add_items([("gotenberg", "{{ gotenberg_DOCKER_IMAGE }}
 
 hooks.Filters.ENV_TEMPLATE_ROOTS.add_items(
     [
-        str(importlib_resources.files("tutor_plugin_gotenberg") / "templates"),
+        str(importlib_resources.files("tutorgotenberg") / "templates"),
     ]
 )
 
@@ -61,7 +61,7 @@ hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
 # For each file in tutorgotenberg/patches,
 # apply a patch based on the file's name and contents.
 for path in glob(
-    str(importlib_resources.files("tutor_plugin_gotenberg") / "patches" / "*")
+    str(importlib_resources.files("tutorgotenberg") / "patches" / "*")
 ):
     with open(path, encoding="utf-8") as patch_file:
         hooks.Filters.ENV_PATCHES.add_item((os.path.basename(path), patch_file.read()))

@@ -1353,7 +1353,7 @@ dev = [
 ]
 
 [[package]]
-name = "tutor-plugin-gotenberg"
+name = "tutor-contrib-gotenberg"
 version = "21.0.0"
 source = { editable = "." }
 dependencies = [
@@ -1368,12 +1368,12 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "tutor", specifier = ">=21.0.8" }]
+requires-dist = [{ name = "tutor", specifier = ">=21.0.0" }]
 
 [package.metadata.requires-dev]
 dev = [
     { name = "ruff", specifier = ">=0.15.14" },
-    { name = "tutor", extras = ["dev"], specifier = ">=21.0.8" },
+    { name = "tutor", extras = ["dev"], specifier = ">=21.0.0" },
     { name = "ty", specifier = ">=0.0.65" },
 ]
 

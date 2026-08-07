@@ -1,5 +1,5 @@
 [project]
-name = "tutor-plugin-gotenberg"
+name = "tutor-contrib-gotenberg"
 version = "21.0.0"
 license = "AGPL-3.0-only"
 description = "A Tutor plugin for Gotenberg"
@@ -20,7 +20,10 @@ classifiers = [
 ]
 
 [project.entry-points."tutor.plugin.v1"]
-gotenberg = "tutor_plugin_gotenberg.plugin"
+gotenberg = "tutorgotenberg.plugin"
+
+[tool.uv.build-backend]
+module-name = "tutorgotenberg"
 
 [build-system]
 requires = ["uv_build>=0.11.7,<0.12.0"]
