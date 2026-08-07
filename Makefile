@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 .PHONY: docs
-SRC_DIRS = ./tutorgotenberg
+SRC_DIRS = ./src/tutorgotenberg
 CMD_PREFIX ?= uv run
 
 # Warning: These checks are not necessarily run on every PR.
