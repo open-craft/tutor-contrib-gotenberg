@@ -1,25 +1,22 @@
 .DEFAULT_GOAL := help
 .PHONY: docs
-SRC_DIRS = ./tutorgotenberg
-BLACK_OPTS = --exclude templates ${SRC_DIRS}
+SRC_DIRS = ./src/tutorgotenberg
+CMD_PREFIX ?= uv run
 
 # Warning: These checks are not necessarily run on every PR.
 test: test-lint test-types test-format  # Run some static checks.
 
 test-format: ## Run code formatting tests
-	black --check --diff $(BLACK_OPTS)
+	$(CMD_PREFIX) ruff format --check --diff
 
 test-lint: ## Run code linting tests
-	pylint --errors-only --enable=unused-import,unused-argument --ignore=templates --ignore=docs/_ext ${SRC_DIRS}
+	$(CMD_PREFIX) ruff check
 
 test-types: ## Run type checks.
-	mypy --exclude=templates --ignore-missing-imports --implicit-reexport --strict ${SRC_DIRS}
+	$(CMD_PREFIX) ty check
 
 format: ## Format code automatically
-	black $(BLACK_OPTS)
-
-isort: ##  Sort imports. This target is not mandatory because the output may be incompatible with black formatting. Provided for convenience purposes.
-	isort --skip=templates ${SRC_DIRS}
+	$(CMD_PREFIX) ruff format
 
 ESCAPE = 
 help: ## Print this help

@@ -6,15 +6,12 @@ from glob import glob
 import importlib_resources
 from tutor import hooks
 
-from .__about__ import __version__
-
 ########################################
 # CONFIGURATION
 ########################################
 
 hooks.Filters.CONFIG_DEFAULTS.add_items(
     [
-        ("GOTENBERG_VERSION", __version__),
         ("GOTENBERG_DOCKER_IMAGE", "gotenberg/gotenberg:8"),
         ("GOTENBERG_PORT", "3000"),
     ]
@@ -37,8 +34,6 @@ hooks.Filters.IMAGES_BUILD.add_items(
 )
 
 hooks.Filters.IMAGES_PULL.add_items([("gotenberg", "{{ gotenberg_DOCKER_IMAGE }}")])
-
-# hooks.Filters.IMAGES_PUSH.add_items([("gotenberg", "{{ gotenberg_DOCKER_IMAGE }}")])
 
 
 ########################################
