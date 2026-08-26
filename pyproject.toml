@@ -1,6 +1,6 @@
 [project]
 name = "tutor-contrib-gotenberg"
-version = "21.0.0"
+version = "21.0.1"
 license = "AGPL-3.0-only"
 description = "A Tutor plugin for Gotenberg"
 readme = "README.rst"
