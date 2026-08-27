@@ -13,7 +13,12 @@ from tutor import hooks
 hooks.Filters.CONFIG_DEFAULTS.add_items(
     [
         ("GOTENBERG_DOCKER_IMAGE", "gotenberg/gotenberg:8"),
+        # The port Gotenberg responds to when calling it from within the LMS/CMS.
+        # You probably don't need to change this.
         ("GOTENBERG_PORT", "3000"),
+        # Used in docker-compose environments where 3000 is occupied, but you may
+        # wish to access the service from the host.
+        ("GOTENBERG_DC_HOST_PORT", "3000"),
     ]
 )
 

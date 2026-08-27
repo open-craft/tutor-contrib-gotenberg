@@ -3,4 +3,4 @@ gotenberg:
   image: {{ GOTENBERG_DOCKER_IMAGE }}
   restart: unless-stopped
   ports:
-    - "{{ GOTENBERG_PORT }}:3000"
+    - "{{ GOTENBERG_DC_HOST_PORT }}:3000"
