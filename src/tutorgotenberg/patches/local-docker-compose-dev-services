@@ -2,5 +2,7 @@
 gotenberg:
   image: {{ GOTENBERG_DOCKER_IMAGE }}
   restart: unless-stopped
+  tty: true
+  stdin_open: true
   ports:
     - "{{ GOTENBERG_DC_HOST_PORT }}:3000"

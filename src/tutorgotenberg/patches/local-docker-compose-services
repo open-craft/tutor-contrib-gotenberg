@@ -2,3 +2,5 @@
 gotenberg:
   image: {{ GOTENBERG_DOCKER_IMAGE }}
   restart: unless-stopped
+  tty: true
+  stdin_open: true
